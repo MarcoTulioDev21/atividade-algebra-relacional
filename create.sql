@@ -1,0 +1,24 @@
+
+
+CREATE TABLE CURSOS (
+    Cod VARCHAR(10) PRIMARY KEY,
+    Nome VARCHAR(100),
+    Depto VARCHAR(100),
+    Coord VARCHAR(100)
+);
+
+CREATE TABLE ALUNOS (
+    Matr INT PRIMARY KEY,
+    Nome VARCHAR(100),
+    Sexo CHAR(1),
+    Cr VARCHAR(10),
+    FOREIGN KEY (Cr) REFERENCES CURSOS(Cod)
+);
+
+CREATE TABLE MATRICULAS (
+    Matr INT,
+    Disc VARCHAR(100),
+    Sem VARCHAR(20),
+    PRIMARY KEY (Matr, Disc, Sem),
+    FOREIGN KEY (Matr) REFERENCES ALUNOS(Matr)
+);
